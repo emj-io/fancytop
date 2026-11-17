@@ -4,6 +4,10 @@
 
 A flashy, fast terminal monitor for Apple Silicon Macs: every CPU core, the GPU, memory, live DRAM bandwidth, and disk and network I/O.
 
+![fancytop demo](docs/demo.gif)
+
+The GIF is capped at about 25 fps. [Watch the 120 fps version](docs/demo-120fps.mp4) (`fancytop --fps 120`).
+
 ## Build and run
 
 Needs an Apple Silicon Mac and Rust 1.89 or newer ([rustup](https://rustup.rs)). No root or sudo.
