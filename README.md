@@ -115,6 +115,12 @@ and 256-colour otherwise.
 - CPU/GPU frequency and power aren't shown yet. IOReport exposes them without root too.
 - `legacy/fancytop.py` is the original dependency-free Python version.
 
+## Contributing
+
+`scripts/install-hooks.sh` runs `scripts/check.sh` (fmt, clippy, tests, `cargo deny`, gitleaks) before every push; it needs
+`cargo install cargo-deny --locked` and `brew install gitleaks`. See [AGENTS.md](AGENTS.md) for how the code is organised,
+and [SECURITY.md](SECURITY.md) to report a vulnerability.
+
 ## License
 
 GPL-3.0-or-later. See [LICENSE](LICENSE). Changes are listed in [CHANGELOG.md](CHANGELOG.md).
