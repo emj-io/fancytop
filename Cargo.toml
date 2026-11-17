@@ -1,0 +1,21 @@
+[package]
+name = "fancytop"
+version = "0.2.0"
+description = "Flashy, fast terminal monitor for CPU, GPU, memory and DRAM bandwidth on Apple Silicon Macs"
+edition = "2024"
+rust-version = "1.89"
+license = "GPL-3.0-or-later"
+readme = "README.md"
+repository = "https://github.com/emj-io/fancytop"
+keywords = ["monitor", "top", "tui", "apple-silicon", "macos"]
+categories = ["command-line-utilities", "visualization"]
+exclude = ["legacy/", ".github/", "scripts/"]
+
+[dependencies]
+libc = "0.2.191"
+ratatui = "0.30.2"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
