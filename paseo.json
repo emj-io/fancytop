@@ -1,0 +1,14 @@
+{
+  "worktree": {
+    "setup": [
+      "scripts/install-hooks.sh",
+      "cargo fetch --locked",
+      "for t in cargo-deny gitleaks; do command -v $t >/dev/null || echo \"missing $t: run brew bundle\"; done"
+    ]
+  },
+  "scripts": {
+    "check": { "command": "scripts/check.sh" },
+    "snapshot": { "command": "cargo run --release -- --snapshot 160x50" },
+    "pty-smoke": { "command": "cargo build --release && python3 scripts/pty-smoke.py target/release/fancytop" }
+  }
+}

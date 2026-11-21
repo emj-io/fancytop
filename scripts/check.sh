@@ -6,11 +6,11 @@ cd "$(dirname "$0")/.."
 need() {
     command -v "$1" >/dev/null 2>&1 || { echo "missing $1: $2" >&2; exit 1; }
 }
-cargo deny --version >/dev/null 2>&1 || { echo "missing cargo-deny: cargo install cargo-deny --locked" >&2; exit 1; }
-need gitleaks "brew install gitleaks"
+need cargo-deny "brew bundle"
+need gitleaks "brew bundle"
 
 cargo fmt --check
-cargo clippy --all-targets -- -D warnings
-cargo test
+cargo clippy --locked --all-targets -- -D warnings
+cargo test --locked
 cargo deny check
 gitleaks git --no-banner --redact .
