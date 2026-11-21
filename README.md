@@ -121,8 +121,8 @@ and 256-colour otherwise.
 
 ## Contributing
 
-`scripts/install-hooks.sh` runs `scripts/check.sh` (fmt, clippy, tests, `cargo deny`, gitleaks) before every push; it needs
-`cargo install cargo-deny --locked` and `brew install gitleaks`. See [AGENTS.md](AGENTS.md) for how the code is organised,
+`scripts/install-hooks.sh` runs `scripts/check.sh` (fmt, clippy, tests, `cargo deny`, gitleaks) before every push; `brew bundle`
+installs what it needs (rustup, cargo-deny, gitleaks); `rust-toolchain.toml` pins the Rust channel. See [AGENTS.md](AGENTS.md) for how the code is organised,
 and [SECURITY.md](SECURITY.md) to report a vulnerability.
 
 ## License

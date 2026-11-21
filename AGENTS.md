@@ -5,7 +5,7 @@ Terminal monitor for Apple Silicon Macs (Rust, ratatui). It reads Mach, IOKit an
 ## Commands
 
 - `scripts/check.sh`: fmt, clippy (`-D warnings`), tests, `cargo deny`, gitleaks. This is what the pre-push hook and CI run. Run it before calling anything done.
-- `scripts/install-hooks.sh`: enable the pre-push hook (`core.hooksPath = .githooks`). Needs `cargo install cargo-deny --locked` and `brew install gitleaks`.
+- `scripts/install-hooks.sh`: enable the pre-push hook (`core.hooksPath = .githooks`). `brew bundle` installs the tools it needs (see `Brewfile`); `rust-toolchain.toml` pins the toolchain.
 - `cargo run --release -- --snapshot 160x50`: render one frame as text without a TTY. The quickest way to see a UI change.
 - `scripts/pty-smoke.py target/release/fancytop`: checks the app quits and restores the terminal on `q`, Ctrl-C, SIGINT, SIGTERM and SIGHUP.
 

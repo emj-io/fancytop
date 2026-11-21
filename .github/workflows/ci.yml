@@ -24,9 +24,9 @@ jobs:
           components: clippy, rustfmt
       - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2
       - run: cargo fmt --check
-      - run: cargo clippy --all-targets -- -D warnings
-      - run: cargo test
-      - run: cargo build --release
+      - run: cargo clippy --locked --all-targets -- -D warnings
+      - run: cargo test --locked
+      - run: cargo build --release --locked
       - name: Render one frame
         run: ./target/release/fancytop --snapshot 160x50
       - name: Quit and restore the terminal on keys and signals
@@ -34,6 +34,9 @@ jobs:
 
   msrv:
     runs-on: macos-latest
+    env:
+      # Overrides rust-toolchain.toml, which tracks stable.
+      RUSTUP_TOOLCHAIN: "1.89"
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
